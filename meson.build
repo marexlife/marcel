@@ -12,7 +12,7 @@ sources = [
   'marcel.lex.c',
 ]
 
-exe = executable(
+executable(
   'marcel',
   sources + 'main.c',
   dependencies: dependencies,
@@ -20,7 +20,7 @@ exe = executable(
 )
 
 lex_test = executable(
-  'marcel',
+  'test_lex',
   sources + 'marcel.test.lex.c',
   dependencies: dependencies,
 )
