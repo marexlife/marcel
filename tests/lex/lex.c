@@ -25,7 +25,9 @@ int main(void)
               marcel_token_tag_indent,
           };
 
-    for (size_t i = 0; i < tokens_len; ++i) {
+    for (size_t i = 0;
+        i < (tokens_len | sizeof expected_result);
+        ++i) {
         if (actual_result[i].token_tag
             != expected_result[i]) {
             err_code = -1;

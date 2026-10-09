@@ -74,13 +74,7 @@ static void push_token(
         *tokens = realloc(tokens, *tokens_cap);
     }
 
-    const char print_comp[] = {
-        'p',
-        'r',
-        'i',
-        'n',
-        't',
-    };
+    const char print_comp[] = "print";
 
     const size_t print_comp_len
         = sizeof(print_comp);

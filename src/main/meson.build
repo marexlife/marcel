@@ -1,6 +1,6 @@
 executable(
     'main',
     sources: 'main.c',
-    include_directories: global_includes
+    link_with: lex,
+    include_directories: global_includes,
 )
-
