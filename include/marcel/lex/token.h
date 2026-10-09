@@ -1,6 +1,12 @@
 #ifndef MARCEL_TOKEN_H
 #define MARCEL_TOKEN_H
+#include <stddef.h>
 #include <stdint.h>
+
+struct str {
+    const char *chars;
+    size_t len;
+};
 
 enum marcel_token_tag {
     marcel_token_tag_number,
@@ -9,7 +15,7 @@ enum marcel_token_tag {
 };
 
 union marcel_token_storage {
-    char *lexeme;
+    struct str lexeme;
     int32_t number;
     void *none;
 };

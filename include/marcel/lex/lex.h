@@ -4,7 +4,7 @@
 
 struct marcel_token;
 
-void marcel_lex(char *source_code,
-    struct marcel_token *restrict tokens,
-    size_t *tokens_len);
+void marcel_lex(const char *source_code,
+    struct marcel_token **tokens,
+    size_t *tokens_len, size_t *tokens_cap);
 #endif // MARCEL_LEX_H
