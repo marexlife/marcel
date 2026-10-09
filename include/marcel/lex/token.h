@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-struct str {
+struct marcel_str {
     const char *chars;
     size_t len;
 };
@@ -15,13 +15,15 @@ enum marcel_token_tag {
 };
 
 union marcel_token_storage {
-    struct str lexeme;
+    struct marcel_str lexeme;
     int32_t number;
     void *none;
 };
 
 struct marcel_token {
-    enum marcel_token_tag token_tag;
-    union marcel_token_storage token_storage;
+    enum marcel_token_tag tag;
+    union marcel_token_storage storage;
 };
+
+char *marcel_token_tag_str(enum marcel_token_tag tag);
 #endif // MARCEL_TOKEN_H

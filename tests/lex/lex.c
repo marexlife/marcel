@@ -28,7 +28,7 @@ int main(void)
     for (size_t i = 0;
         i < (tokens_len | sizeof expected_result);
         ++i) {
-        if (actual_result[i].token_tag
+        if (actual_result[i].tag
             != expected_result[i]) {
             err_code = -1;
             goto end;

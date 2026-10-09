@@ -17,5 +17,10 @@ int main(void)
     marcel_lex(source_code, &tokens, &tokens_len,
         &tokens_cap);
 
+    for (size_t i = 0; i < tokens_len; ++i) {
+        printf("%s\n",
+            marcel_token_tag_str(tokens[i].tag));
+    }
+
     free(tokens);
 }

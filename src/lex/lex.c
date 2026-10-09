@@ -22,6 +22,7 @@ void marcel_lex(const char *source_code,
 
     for (const char *source_char = source_code;
         *source_char != '\0'; ++source_char) {
+
         lex_iter(&last_word, &previous_word_len,
             source_char, tokens, tokens_len,
             tokens_cap);
@@ -60,6 +61,9 @@ static void lex_iter(const char **last_word,
         ++*last_word_len;
         break;
     }
+
+    push_token(tokens, tokens_len, tokens_cap,
+        last_word, *last_word_len);
 }
 
 static void push_token(
@@ -81,14 +85,14 @@ static void push_token(
 
     if (strncmp(*last_word, print_comp,
             last_word_len | print_comp_len)) {
-        (*tokens)[*tokens_len].token_tag
+        (*tokens)[*tokens_len].tag
             = marcel_token_tag_print;
 
         return;
     }
 
-    (*tokens)[*tokens_len]
-        .token_storage.lexeme.chars = *last_word;
-    (*tokens)[*tokens_len].token_tag
+    (*tokens)[*tokens_len].storage.lexeme.chars
+        = *last_word;
+    (*tokens)[*tokens_len].tag
         = marcel_token_tag_indent;
 }
